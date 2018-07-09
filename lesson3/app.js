@@ -13,12 +13,10 @@ app.get('/', function (req, res, next) {
 
             var $ = cheerio.load(sres.text);
             var items = [];
-            var f = 0;
             $('#topic_list .cell').each(function (idx, cell) {
                 var c = $(cell);
                 var avatar = c.find('a').children('img').attr('src');
                 var element = c.find('div').children('a');
-                var last_time = c.find('div').children('a');
                 items.push({
                     avatar : avatar,
                     title: element.attr('title'),
